@@ -25,13 +25,13 @@ export default {
   setup() {
     const store = useStore();
     const showList = computed(() => store.state.header.showList);
-    const listTitle = ["일번", "이번", "삼번", "로그아웃"];
+    const listTitle = ["GIF모음", "이번", "삼번", "로그아웃"];
     const router = useRouter();
     const showHeaderList = async () => {
       try {
         await store.dispatch('header/showHeaderList', false);
         router.push({
-          name:'Home'
+          name: 'Home'
         });
       } catch (err) {
         console.log(err);
@@ -39,9 +39,27 @@ export default {
     };
 
     const logOut = (e) => {
-      switch(e.target.innerHTML) {
-        case "로그아웃" : showHeaderList();
-        break;
+      switch (e.target.innerHTML) {
+        case "로그아웃": showHeaderList();
+          break;
+        case "GIF모음":
+          router.push({
+            name: 'info',
+            query: 1
+          });
+          break;
+        case "이번":
+          router.push({
+            name: 'info',
+            query: 2
+          })
+          break;
+        case "삼번":
+          router.push({
+            name: 'info',
+            query: 3
+          })
+          break;
         default: break;
       }
 
@@ -50,7 +68,7 @@ export default {
     return {
       listTitle,
       showList,
-      logOut
+      logOut,
     }
   }
 }

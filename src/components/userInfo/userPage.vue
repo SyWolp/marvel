@@ -27,7 +27,7 @@ export default {
       }
     };
     const gifMove = (e) => {
-      if (e.target.innerHTML === '왼쪽') {
+      if (e.target.innerHTML === '&lt;') {
         if (pmBtn.value === 0) {
           pmBtn.value = 49;
         } else {

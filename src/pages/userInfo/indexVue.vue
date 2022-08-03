@@ -1,5 +1,9 @@
 <template>
-  <userPage />
+  <div>
+    <userPage />
+    <!-- <div>이번</div>
+    <div>삼번</div> -->
+  </div>
 </template>
 
 <script>
