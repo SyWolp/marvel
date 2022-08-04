@@ -1,9 +1,9 @@
 <template>
   <div>
     <userPage v-if="pageIndex === 0" />
-    <div v-else-if="pageIndex === 1" >이번</div>
+    <UserInfoPage v-else-if="pageIndex === 1" />
     <div v-else-if="pageIndex === 2">삼번</div>
-  <SidePage />
+    <SidePage />
   </div>
 </template>
 
@@ -13,10 +13,12 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import userPage from '@/components/userInfo/userPage.vue';
 import SidePage from '@/components/sidePage/sidePage.vue';
+import UserInfoPage from '@/components/userInfo/userInfoPage.vue';
 export default {
   components: {
     userPage,
-    SidePage
+    SidePage,
+    UserInfoPage
 },
 
   setup() {
