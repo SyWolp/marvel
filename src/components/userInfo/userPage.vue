@@ -20,7 +20,6 @@ export default {
       try {
         const res = await axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=1jqHXbnFTB0JAX995cE71GP5dpUG7fy4`);
         user.push({ ...res.data.data });
-        console.log(user);
         url.value = user[0][0].images.original.url;
       } catch (err) {
         console.log(err);

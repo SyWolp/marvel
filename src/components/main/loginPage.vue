@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { reactive, computed } from 'vue';
+import { reactive } from 'vue';
 import { useStore } from 'vuex';
 import { Amplify, API, graphqlOperation } from 'aws-amplify';
 import awsExports from '@/aws-exports';
@@ -41,8 +41,6 @@ export default {
     });
     const store = useStore();
     const router = useRouter();
-        const showPage = computed(() => store.state.userInfo.userstatus);
-        console.log(showPage.value);
     const showHeaderList = () => {
       store.dispatch('header/showHeaderList', true);
     };
@@ -54,7 +52,8 @@ export default {
     const getData = async () => {
       try {
         const res = await API.graphql(graphqlOperation(getUserData, { id: emailEmpty.id }));
-        if(res.data.getUserData !== null) {
+        console.log(emailEmpty.pw ,res.data.getUserData);
+        if(res.data.getUserData !== null && emailEmpty.pw === res.data.getUserData.password) {
           emailEmpty.name = res.data.getUserData.username;
           emailEmpty.status = true;
           showHeaderList();
@@ -63,7 +62,7 @@ export default {
             name: 'info'
           });
         }else {
-          console.log("없는 아이디");
+          console.log("아이디 혹은 비밀번호가 틀림");
         }
         console.log(res);
       } catch (err) {

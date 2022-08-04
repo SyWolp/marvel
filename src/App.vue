@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HeaderVue from '@/components/headerVue.vue';
+import HeaderVue from '@/components/header/headerVue.vue';
 
 export default {
   components: {
