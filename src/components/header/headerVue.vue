@@ -95,10 +95,8 @@ export default {
           default: break;
         }
       } else {
-
         return;
       }
-
     }
 
     return {

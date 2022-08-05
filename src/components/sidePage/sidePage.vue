@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-    <div v-if="showSide === true" :class="sideClass" class="absolute top-0 left-0">
-      <div class="absolute top-16 bg-gray-400 w-4/6 letfAb rounded-bl-xl rounded-br-xl h-52">123</div>
+    <div v-if="showSide === true" :class="sideClass" class="fixed top-0 left-0">
+      <div class="fixed top-1/2 bg-gray-400 w-4/6 h-4/6 letfAb rounded-xl rounded-br-xl">123</div>
     </div>
   </transition>
 </template>
@@ -45,6 +45,7 @@ export default {
 }
 
 .letfAb {
-  left: 16.65%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 </style>
